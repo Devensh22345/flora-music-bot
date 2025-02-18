@@ -111,7 +111,7 @@ class WinxBot(Client):
         try:
             await self.send_message(
                 config.LOG_GROUP_ID,
-                text=f"🚀 <u><b>{self.mention} Bot Started :</b></u>\n\n🆔 <b>ID</b>: <code>{self.id}</code>\n📛 <b>Name</b>: {self.name}\n🔗 <b>Username:</b> @{self.username}",
+                text=f"🚀 <u><b>{self.mention} Bot Iniciado :</b></u>\n\n🆔 <b>ID</b>: <code>{self.id}</code>\n📛 <b>Nome</b>: {self.name}\n🔗 <b>Nome de usuário:</b> @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
@@ -136,46 +136,47 @@ class WinxBot(Client):
 
     async def _set_default_commands(self):
         private_commands = [
-            BotCommand("start", "Start the bot"),
-BotCommand("help", "Get the help menu"),
-BotCommand("ping", "Check if the bot is active or inactive"),
-]
-group_commands = [BotCommand("play", "Start playing the requested song")]
-admin_commands = [
-BotCommand("play", "Start playing the requested song"),
-BotCommand("skip", "Go to the next song in the queue"),
-BotCommand("pause", "Pause the current song"),
-BotCommand("resume", "Resume the paused song"),
-BotCommand("end", "Clear the queue and exit voice chat"),
-BotCommand("shuffle", "Shuffle the queued playlist"),
-BotCommand("playmode", "Change the default playback mode of the your chat"),
-BotCommand("settings", "Open the bot settings for your chat"),
-]
-owner_commands = [
-BotCommand("update", "Update the bot"),
-BotCommand("restart", "Restart the bot"),
-BotCommand("logs", "Get the logs"),
-BotCommand("export", "Export all data from MongoDB"),
-BotCommand("import", "Import all data into MongoDB"),
-BotCommand("addsudo", "Add a user as sudoer"),
-BotCommand("delsudo", "Remove a user from sudoers"),
-BotCommand("sudolist", "List all sudo users"),
-BotCommand("log", "Get the bot logs"),
-BotCommand("getvar", "Get a variable from sudo ... environment variable"),
-BotCommand("delvar", "Delete a specific environment variable"),
-BotCommand("setvar", "Set a specific environment variable"),
-BotCommand("usage", "Get information about Dyno usage"),
-BotCommand("maintenance", "Enable or disable maintenance mode"),
-BotCommand("logger", "Enable or disable activity logging"),
-BotCommand("block", "Block a user"),
-BotCommand("unblock", "Unblock a user"),
-BotCommand("blacklist", "Add a chat to the blacklist"),
-BotCommand("whitelist", "Remove a chat from the blacklist"),
-BotCommand("blacklisted", "List all blacklisted chats"),
-BotCommand(
-"autoend", "Enable or disable auto-end for broadcasts"
-), BotCommand("reboot", "Restart the bot"),
-BotCommand("restart", "Restart the bot"),
+            BotCommand("start", "Iniciar o bot"),
+            BotCommand("help", "Obter o menu de ajuda"),
+            BotCommand("ping", "Verificar se o bot está ativo ou inativo"),
+        ]
+        group_commands = [BotCommand("play", "Começar a tocar a música solicitada")]
+        admin_commands = [
+            BotCommand("play", "Começar a tocar a música solicitada"),
+            BotCommand("skip", "Ir para a próxima música na fila"),
+            BotCommand("pause", "Pausar a música atual"),
+            BotCommand("resume", "Retomar a música pausada"),
+            BotCommand("end", "Limpar a fila e sair do chat de voz"),
+            BotCommand("shuffle", "Embaralhar aleatoriamente a playlist na fila"),
+            BotCommand("playmode", "Alterar o modo de reprodução padrão do seu chat"),
+            BotCommand("settings", "Abrir as configurações do bot para o seu chat"),
+        ]
+        owner_commands = [
+            BotCommand("update", "Atualizar o bot"),
+            BotCommand("restart", "Reiniciar o bot"),
+            BotCommand("logs", "Obter os registros"),
+            BotCommand("export", "Exportar todos os dados do MongoDB"),
+            BotCommand("import", "Importar todos os dados no MongoDB"),
+            BotCommand("addsudo", "Adicionar um usuário como sudoer"),
+            BotCommand("delsudo", "Remover um usuário dos sudoers"),
+            BotCommand("sudolist", "Listar todos os usuários sudo"),
+            BotCommand("log", "Obter os registros do bot"),
+            BotCommand("getvar", "Obter uma variável de ambiente específica"),
+            BotCommand("delvar", "Excluir uma variável de ambiente específica"),
+            BotCommand("setvar", "Definir uma variável de ambiente específica"),
+            BotCommand("usage", "Obter informações sobre o uso do Dyno"),
+            BotCommand("maintenance", "Ativar ou desativar o modo de manutenção"),
+            BotCommand("logger", "Ativar ou desativar o registro de atividades"),
+            BotCommand("block", "Bloquear um usuário"),
+            BotCommand("unblock", "Desbloquear um usuário"),
+            BotCommand("blacklist", "Adicionar um chat à lista negra"),
+            BotCommand("whitelist", "Remover um chat da lista negra"),
+            BotCommand("blacklisted", "Listar todos os chats na lista negra"),
+            BotCommand(
+                "autoend", "Ativar ou desativar o término automático para transmissões"
+            ),
+            BotCommand("reboot", "Reiniciar o bot"),
+            BotCommand("restart", "Reiniciar o bot"),
         ]
 
         await self.set_bot_commands(
