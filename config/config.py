@@ -34,7 +34,7 @@ DURATION_LIMIT_MIN = int(
 )  # Remember to give value in Minutes
 
 # Enable / Disable external plugins
-EXTRA_PLUGINS = getenv("EXTRA_PLUGINS", "False")
+EXTRA_PLUGINS = getenv("EXTRA_PLUGINS", "True")
 
 # Fill True if you want to load extra plugins from external repo
 EXTRA_PLUGINS_REPO = getenv(
@@ -142,7 +142,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 
 # If you want your bot to setup the commands automatically in the bot's menu set it to true.
 # Refer to https://i.postimg.cc/Bbg3LQTG/image.png
-SET_CMDS = getenv("SET_CMDS", "False")
+SET_CMDS = getenv("SET_CMDS", "True")
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @WinxStringBot
 # Get the environment variable with a default value of an empty string
