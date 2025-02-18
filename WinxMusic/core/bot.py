@@ -137,45 +137,60 @@ class WinxBot(Client):
     async def _set_default_commands(self):
         private_commands = [
             BotCommand("start", "Start the bot"),
-BotCommand("help", "Get the help menu"),
-BotCommand("ping", "Check if the bot is active or inactive"),
+            BotCommand("help", "Get the help menu"),
+            BotCommand("ping", "Check if the bot is active or inactive"),]
+        
+group_commands = [
+   BotCommand("play", "Start playing the requested song")]
+
+admin_commands = [  
+    BotCommand("play", "Start playing the requested song"),
+    BotCommand("skip", "Go to the next song in the queue"),
+    BotCommand("pause", "Pause the current song"),
+    BotCommand("resume", "Resume the paused song"),
+    BotCommand("end", "Clear the queue and exit voice chat"),
+
+    BotCommand("shuffle", "Shuffle the queued playlist"),
+
+    BotCommand("playmode", "Change the default playback mode of the your chat"),
+
+    BotCommand("settings", "Open the bot settings for your chat"),
 ]
-group_commands = [BotCommand("play", "Start playing the requested song")]
-admin_commands = [
-BotCommand("play", "Start playing the requested song"),
-BotCommand("skip", "Go to the next song in the queue"),
-BotCommand("pause", "Pause the current song"),
-BotCommand("resume", "Resume the paused song"),
-BotCommand("end", "Clear the queue and exit voice chat"),
-BotCommand("shuffle", "Shuffle the queued playlist"),
-BotCommand("playmode", "Change the default playback mode of the your chat"),
-BotCommand("settings", "Open the bot settings for your chat"),
-]
+
 owner_commands = [
-BotCommand("update", "Update the bot"),
-BotCommand("restart", "Restart the bot"),
-BotCommand("logs", "Get the logs"),
-BotCommand("export", "Export all data from MongoDB"),
-BotCommand("import", "Import all data into MongoDB"),
-BotCommand("addsudo", "Add a user as sudoer"),
-BotCommand("delsudo", "Remove a user from sudoers"),
-BotCommand("sudolist", "List all sudo users"),
-BotCommand("log", "Get the bot logs"),
-BotCommand("getvar", "Get a variable from sudo ... environment variable"),
-BotCommand("delvar", "Delete a specific environment variable"),
-BotCommand("setvar", "Set a specific environment variable"),
-BotCommand("usage", "Get information about Dyno usage"),
-BotCommand("maintenance", "Enable or disable maintenance mode"),
-BotCommand("logger", "Enable or disable activity logging"),
-BotCommand("block", "Block a user"),
-BotCommand("unblock", "Unblock a user"),
-BotCommand("blacklist", "Add a chat to the blacklist"),
-BotCommand("whitelist", "Remove a chat from the blacklist"),
-BotCommand("blacklisted", "List all blacklisted chats"),
-BotCommand(
-"autoend", "Enable or disable auto-end for broadcasts"
-), BotCommand("reboot", "Restart the bot"),
-BotCommand("restart", "Restart the bot"),
+
+    BotCommand("update", "Update the bot"),
+
+    BotCommand("restart", "Restart the bot"),
+
+    BotCommand("logs", "Get the logs"),
+
+    BotCommand("export", "Export all data from MongoDB"),
+
+    BotCommand("import", "Import all data into MongoDB"),
+
+    BotCommand("addsudo", "Add a user as sudoer"),
+    BotCommand("delsudo", "Remove a user from sudoers"),
+
+    BotCommand("sudolist", "List all sudo users"),
+    BotCommand("log", "Get the bot logs"),
+
+    BotCommand("getvar", "Get a variable from sudo ... environment variable"),
+
+    BotCommand("delvar", "Delete a specific environment variable"),
+
+    BotCommand("setvar", "Set a specific environment variable"),
+    BotCommand("usage", "Get information about Dyno usage"),
+    BotCommand("maintenance", "Enable or disable maintenance mode"),
+    BotCommand("logger", "Enable or disable activity logging"),
+    BotCommand("block", "Block a user"),
+    BotCommand("unblock", "Unblock a user"),
+    BotCommand("blacklist", "Add a chat to the blacklist"),
+    BotCommand("whitelist", "Remove a chat from the blacklist"),
+    BotCommand("blacklisted", "List all blacklisted chats"),
+    BotCommand("autoend", "Enable or disable auto-end for broadcasts"),
+    BotCommand("reboot", "Restart the bot"),
+    BotCommand("restart", "Restart the bot"),
         ]
 
         await self.set_bot_commands(
